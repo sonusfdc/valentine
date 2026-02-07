@@ -23,19 +23,18 @@
 
     h1 {
         color: white;
-        font-size: 34px;
+        font-size: 40px;
         margin-bottom: 50px;
-        padding: 0 15px;
     }
 
     button {
-        padding: 15px 35px;
+        padding: 15px 40px;
         font-size: 20px;
         border: none;
         border-radius: 30px;
         cursor: pointer;
         position: absolute;
-        transition: 0.15s ease;
+        transition: 0.2s;
     }
 
     #yesBtn {
@@ -48,12 +47,12 @@
     #noBtn {
         background-color: #dc3545;
         color: white;
-        left: 50%;
+        left: 45%;
         top: 60%;
     }
 
     .message {
-        font-size: 26px;
+        font-size: 28px;
         color: white;
         margin-top: 30px;
         display: none;
@@ -64,10 +63,10 @@
 <body>
 
 <div class="container">
-    <h1>Will you be my Valentine Priyanka? ❤️</h1>
+    <h1>Will you be my Valentine? ❤️</h1>
     <button id="yesBtn">YES 💖</button>
     <button id="noBtn">NO 😜</button>
-    <div class="message" id="message">I Love You, Every Day. 😍💘</div>
+    <div class="message" id="message">I Love You Every Day 😍💘</div>
 </div>
 
 <script>
@@ -75,8 +74,21 @@
     const yesBtn = document.getElementById("yesBtn");
     const message = document.getElementById("message");
 
-    function moveNoButton() {
+    // Move NO button randomly when mouse gets close
+    noBtn.addEventListener("mouseover", () => {
         const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
         const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
         noBtn.style.left = x + "px";
-        noBtn.style.top = y +
+        noBtn.style.top = y + "px";
+    });
+
+    // On YES click
+    yesBtn.addEventListener("click", () => {
+        message.style.display = "block";
+        yesBtn.style.display = "none";
+        noBtn.style.display = "none";
+    });
+</script>
+
+</body>
+</html>
